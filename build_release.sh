@@ -8,6 +8,21 @@
 echo "===== SleepFastTracker Release Build Script ====="
 echo "Starting build process for Android 14+ only app..."
 
+# Display usage information
+usage() {
+    echo "Usage: $0 [OPTION]"
+    echo "Options:"
+    echo "  --install     Build and install the app on a connected device"
+    echo "  --store       Build and store a timestamped APK in the apk directory"
+    echo "  --help        Display this help message"
+    exit 1
+}
+
+# Check for help flag
+if [ "$1" == "--help" ]; then
+    usage
+fi
+
 # Navigate to the project directory (in case the script is run from elsewhere)
 cd "$(dirname "$0")"
 
@@ -42,11 +57,22 @@ verify_keystore() {
     echo "Found signing keystore at keystore/sleepfasttracker.jks"
 }
 
+# Ensure apk directory exists
+ensure_apk_dir() {
+    if [ ! -d "apk" ]; then
+        echo "Creating apk directory..."
+        mkdir -p apk
+    fi
+}
+
 # Set up Android SDK path
 setup_android_sdk
 
 # Verify keystore exists
 verify_keystore
+
+# Ensure apk directory exists
+ensure_apk_dir
 
 # Clean the project
 echo "Cleaning project..."
@@ -71,6 +97,22 @@ if [ $? -eq 0 ]; then
         echo "App signing information:"
         echo "  Keystore: keystore/sleepfasttracker.jks"
         echo "  Alias: sft"
+        
+        # Store the APK in the apk directory with timestamp
+        if [ "$1" == "--store" ]; then
+            TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+            VERSION=$(grep -E "versionName" app/build.gradle | sed -E 's/.*versionName "([^"]+)".*/\1/')
+            APK_FILENAME="SleepFastTracker_v${VERSION}_${TIMESTAMP}.apk"
+            
+            echo "Storing signed APK in apk directory..."
+            cp "$APK_PATH" "apk/$APK_FILENAME"
+            
+            if [ $? -eq 0 ]; then
+                echo "APK stored successfully at: apk/$APK_FILENAME"
+            else
+                echo "Failed to store APK in the apk directory."
+            fi
+        fi
         
         # Auto-install the APK on a connected device
         if [ "$1" == "--install" ]; then
@@ -126,7 +168,7 @@ if [ $? -eq 0 ]; then
         else
             echo "Failed to install APK. This might be because your device is not running Android 14 or newer."
             fi        
-	fi
+        fi
     else
         echo "Error: APK file not found!"
     fi

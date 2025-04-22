@@ -15,9 +15,6 @@ keystore.properties
 captures/
 .externalNativeBuild/
 .cxx/
-*.apk
-*.aab
-output.json
 *.ap_
 *.jks
 *.keystore
@@ -59,4 +56,10 @@ node_modules/
 *.dex
 
 # OS specific
-Thumbs.db 
+Thumbs.db
+
+# App builds and releases
+*.apk
+*.aab
+# Except signed APKs in the apk directory
+!apk/*.apk 
