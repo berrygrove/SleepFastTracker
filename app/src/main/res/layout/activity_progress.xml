@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    tools:context=".ui.progress.ProgressActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_light"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Weight Progress Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/weightProgressCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/background_card"
+                app:cardElevation="4dp">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_weight_progress"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="8dp"/>
+                        
+                    <TextView
+                        android:id="@+id/weightDifferenceText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="8dp"
+                        tools:text="-2.5kg since you started"/>
+                        
+                    <TextView
+                        android:id="@+id/totalWeightLossText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceHeadline5"
+                        android:textStyle="bold"
+                        android:textColor="@color/success"
+                        android:layout_marginBottom="16dp"
+                        tools:text="5.2 kg lost"/>
+                        
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/weightProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:progress="45"
+                        app:indicatorColor="@color/primary"
+                        app:trackColor="@color/background_light"
+                        app:trackThickness="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            
+            <!-- Weight Chart Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/weightChartCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/background_card"
+                app:cardElevation="4dp">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/weight_history_chart"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="8dp"/>
+                    
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/weightChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            
+            <!-- BMI Chart Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/bmiChartCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/background_card"
+                app:cardElevation="4dp">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bmi_history_chart"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="8dp"/>
+                    
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/bmiChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            
+            <!-- Fasting Progress Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/fastingProgressCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/background_card"
+                app:cardElevation="4dp">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_fasting_progress"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="8dp"/>
+                        
+                    <TextView
+                        android:id="@+id/fastingCompletionText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="16dp"
+                        tools:text="78% of planned fasting days completed"/>
+                        
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/fastingProgressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:progress="78"
+                        app:indicatorColor="@color/primary"
+                        app:trackColor="@color/background_light"
+                        app:trackThickness="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            
+            <!-- Sleep Progress Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/sleepProgressCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/background_card"
+                app:cardElevation="4dp">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_sleep_progress"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="8dp"/>
+                        
+                    <!-- Message shown when not enough sleep data -->
+                    <TextView
+                        android:id="@+id/notEnoughSleepDataText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="8dp"
+                        android:textAlignment="center"
+                        android:visibility="gone"
+                        tools:text="Not enough data yet - keep tracking your sleep for 7 days"
+                        tools:visibility="visible"/>
+                    
+                    <TextView
+                        android:id="@+id/sleepQualityText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="4dp"
+                        tools:text="Sleep quality improved by 25%"/>
+                        
+                    <TextView
+                        android:id="@+id/bedtimeAdherenceText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="8dp"
+                        tools:text="60% of nights you went to bed on time"/>
+                        
+                    <LinearLayout
+                        android:id="@+id/sleepTrendContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+                        
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/trend"
+                            android:textAppearance="?attr/textAppearanceCaption"
+                            android:textColor="@color/text_secondary"/>
+                            
+                        <TextView
+                            android:id="@+id/sleepTrendText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:drawablePadding="4dp"
+                            android:textAppearance="?attr/textAppearanceCaption"
+                            android:textColor="@color/success"
+                            app:drawableStartCompat="@drawable/ic_trend_up"
+                            tools:text="Improving"/>
+                    </LinearLayout>
+                        
+                    <!-- Added bedtime warning -->
+                    <TextView
+                        android:id="@+id/bedtimeWarningText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bedtime_warning"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        android:textColor="@color/error"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="12dp"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        android:drawablePadding="8dp"
+                        app:drawableStartCompat="@drawable/ic_warning"/>
+                    
+                    <LinearLayout
+                        android:id="@+id/sleepProgressContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/current_bedtime_adherence"
+                            android:textAppearance="?attr/textAppearanceCaption"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginBottom="4dp"/>
+                            
+                        <com.google.android.material.progressindicator.LinearProgressIndicator
+                            android:id="@+id/sleepProgressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:progress="60"
+                            app:indicatorColor="@color/primary"
+                            app:trackColor="@color/background_light"
+                            app:trackThickness="8dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout> 

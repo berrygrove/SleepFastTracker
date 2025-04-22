@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background_light"
+    android:contentDescription="Personal information screen"
+    tools:context=".ui.setup.fragments.PersonalInfoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Full width layout without card -->
+        <TextView
+            android:id="@+id/tv_personal_info_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tell us about yourself"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="Tell us about yourself"
+            android:importantForAccessibility="yes" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Age"
+            android:textSize="18sp"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Age"
+            android:importantForAccessibility="yes"
+            android:labelFor="@id/et_age" />
+
+        <EditText
+            android:id="@+id/et_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@drawable/edit_text_background"
+            android:inputType="number"
+            android:hint="30"
+            android:textSize="18sp"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_secondary"
+            android:minHeight="48dp"
+            android:maxLength="3"
+            android:importantForAccessibility="yes"
+            android:contentDescription="Enter your age"
+            android:accessibilityLiveRegion="polite" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Age helps calculate optimal sleep &amp; fasting patterns"
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="Age helps calculate optimal sleep and fasting patterns"
+            android:importantForAccessibility="yes" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="32dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp">
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:progress="20"
+                    android:progressDrawable="@drawable/progress_indicator_active"
+                    android:contentDescription="Progress 1 of 5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 of 5"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginTop="16dp"
+                    android:importantForAccessibility="yes" />
+
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/primary_button_background"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                android:padding="16dp"
+                android:minHeight="48dp"
+                android:text="Next"
+                android:contentDescription="Next button"
+                android:importantForAccessibility="yes" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView> 

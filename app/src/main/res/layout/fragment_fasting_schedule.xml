@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background_light"
+    android:contentDescription="Fasting schedule screen"
+    tools:context=".ui.setup.fragments.FastingScheduleFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Full width layout without card -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fasting Schedule"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="Fasting Schedule"
+            android:importantForAccessibility="yes" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Eating starts at"
+            android:textSize="18sp"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Eating starts at"
+            android:importantForAccessibility="yes"
+            android:labelFor="@id/et_eating_start_time" />
+
+        <EditText
+            android:id="@+id/et_eating_start_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@drawable/edit_text_background"
+            android:clickable="true"
+            android:focusable="false"
+            android:hint="11:00"
+            android:inputType="time"
+            android:textSize="18sp"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_secondary"
+            android:minHeight="48dp"
+            android:importantForAccessibility="yes"
+            android:contentDescription="Select eating start time" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Eating window"
+            android:textSize="18sp"
+            android:textColor="@color/text_primary"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Eating window"
+            android:importantForAccessibility="yes" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <SeekBar
+                android:id="@+id/seek_bar_eating_window"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:max="8"
+                android:progress="4"
+                android:progressDrawable="@drawable/slider_progress"
+                android:thumb="@drawable/slider_thumb"
+                android:minHeight="48dp"
+                android:contentDescription="Eating window duration slider, from 2 to 10 hours" />
+
+            <TextView
+                android:id="@+id/tv_selected_hours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="6 hours"
+                android:textSize="42sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp" />
+                
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:alpha="0.5" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" 
+                    android:alpha="0.5" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_eating_end_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Eating ends at 17:00"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:contentDescription="Eating ends at time"
+            android:importantForAccessibility="yes" />
+
+        <TextView
+            android:id="@+id/tv_fasting_ratio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="18 hours fasting / 6 hours eating"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:contentDescription="Fasting to eating ratio"
+            android:importantForAccessibility="yes" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="32dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp">
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:progressDrawable="@drawable/progress_indicator_active"
+                    android:progress="80"
+                    android:contentDescription="Progress 4 of 5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginTop="16dp"
+                    android:text="4 of 5"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:importantForAccessibility="yes" />
+
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/btn_finish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/primary_button_background"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                android:padding="16dp"
+                android:minHeight="48dp"
+                android:text="Next"
+                android:contentDescription="Next button"
+                android:importantForAccessibility="yes" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView> 

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- New Primary Color Palette (Blue-Purples) -->
+    <color name="purple_200">#7D82B0</color>  <!-- Light blue-purple shade -->
+    <color name="purple_500">#323875</color>  <!-- Medium blue-purple shade -->
+    <color name="purple_700">#191F58</color>  <!-- Dark blue-purple shade -->
+    
+    <!-- Additional Primary Color Shades -->
+    <color name="purple_light">#7D82B0</color>
+    <color name="purple_medium">#535993</color>
+    <color name="purple_dark">#080D3B</color>
+    
+    <!-- Secondary Color Palette #1 (Yellow-Gold) -->
+    <color name="magenta_light">#FFF5AA</color>
+    <color name="magenta_medium">#D4C96A</color>
+    <color name="magenta_dark">#AA9D39</color>
+    <color name="magenta_darkest">#554B00</color>
+    
+    <!-- Secondary Color Palette #2 (Orange-Amber) -->
+    <color name="bluepurple_light">#FFD8AA</color>
+    <color name="bluepurple_medium">#D4A46A</color>
+    <color name="bluepurple_dark">#AA7639</color>
+    <color name="bluepurple_darker">#804F15</color>
+    <color name="bluepurple_darkest">#552E00</color>
+    
+    <!-- Keep original base colors -->
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- App colors with new values -->
+    <color name="primary">#323875</color>  <!-- Medium blue-purple from primary palette -->
+    <color name="primary_dark">#191F58</color>  <!-- Dark blue-purple from primary palette -->
+    <color name="primary_light">#7D82B0</color>  <!-- Light blue-purple from primary palette -->
+    <color name="accent">#D4C96A</color>  <!-- Medium yellow-gold from secondary palette -->
+    <color name="text_primary">#2C2C2C</color>  <!-- Keep original -->
+    <color name="text_secondary">#757575</color>  <!-- Keep original -->
+    <color name="background_light">#F5F8FA</color>  <!-- Keep original -->
+    <color name="background_card">#FFFFFF</color>  <!-- Keep original -->
+    <color name="divider">#E0E0E0</color>  <!-- Keep original -->
+    
+    <!-- Status colors - keep or adjust as needed -->
+    <color name="success">#4CAF50</color>  <!-- Keep original -->
+    <color name="error">#AA7639</color>  <!-- Changed to bluepurple_dark from Secondary #2 -->
+    <color name="warning">#D4C96A</color>  <!-- Changed to magenta_medium from Secondary #1 -->
+    
+    <!-- Light versions of status colors for BMI chart zones -->
+    <color name="success_light">#8BC34A33</color>  <!-- Keep original -->
+    <color name="error_light">#AA763933</color>  <!-- Changed to match new error color with alpha -->
+    <color name="warning_light">#D4C96A33</color>  <!-- Changed to match new warning color with alpha -->
+    
+    <!-- Update color legacy names for backwards compatibility -->
+    <color name="colorPrimary">@color/primary</color>
+    <color name="colorPrimaryDark">@color/primary_dark</color>
+    <color name="colorAccent">@color/accent</color>
+    
+    <color name="gray">#808080</color>  <!-- Keep original -->
+    
+    <!-- Update category colors -->
+    <color name="sleep_color">#323875</color>  <!-- Medium blue-purple -->
+    <color name="fasting_color">#D4C96A</color>  <!-- Medium yellow-gold -->
+    <color name="weight_color">#4CAF50</color>  <!-- Keep original -->
+    
+    <!-- Added missing colors -->
+    <color name="primary_700">@color/primary_dark</color>  <!-- For backwards compatibility -->
+    <color name="secondary">@color/accent</color>  <!-- For backwards compatibility -->
+</resources> 

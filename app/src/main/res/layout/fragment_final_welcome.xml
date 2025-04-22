@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background_light"
+    android:contentDescription="Final welcome screen"
+    tools:context=".ui.setup.fragments.FinalWelcomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Full width layout without card -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="All Set!"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="All Set!"
+            android:importantForAccessibility="yes" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your setup is complete"
+            android:textSize="20sp"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="32dp"
+            android:contentDescription="Your setup is complete"
+            android:importantForAccessibility="yes" />
+
+        <!-- Current status card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/setup_card_background"
+            android:padding="24dp"
+            android:layout_marginBottom="32dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Current Status"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="Current Status"
+                android:importantForAccessibility="yes" />
+
+            <TextView
+                android:id="@+id/tv_current_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp"
+                android:text="You are currently fasting. Your eating window starts at 11:00."
+                android:contentDescription="Fasting status"
+                android:importantForAccessibility="yes" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your journey to better health begins now. Track your progress daily to see improvements in your sleep and fasting habits."
+            android:textSize="16sp"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="32dp"
+            android:contentDescription="Motivational message"
+            android:importantForAccessibility="yes" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp">
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:progress="100"
+                    android:progressDrawable="@drawable/progress_indicator_active"
+                    android:contentDescription="Progress 5 of 5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5 of 5"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginTop="16dp"
+                    android:importantForAccessibility="yes" />
+
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/btn_finish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/primary_button_background"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                android:padding="16dp"
+                android:minHeight="48dp"
+                android:text="Finish"
+                android:contentDescription="Finish button"
+                android:importantForAccessibility="yes" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView> 

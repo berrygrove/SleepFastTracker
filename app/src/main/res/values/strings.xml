@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SleepFastTracker</string>
+    
+    <!-- Widget -->
+    <string name="widget_header_score">Score: %d</string>
+    
+    <!-- Fasting status messages -->
+    <string name="status_eating">You are currently in your eating window. Fasting starts at %1$s.</string>
+    <string name="status_fasting">You are currently fasting. Your eating window starts at %1$s.</string>
+
+    <!-- Home Screen -->
+    <string name="card_title_fasting">Fasting</string>
+    <string name="card_title_bedtime">Bed Time</string>
+    <string name="card_title_wake_up">Wake Up</string>
+    <string name="card_title_last_checkin">Last Check-in</string>
+    <string name="card_title_overall_score">Overall Score</string>
+    
+    <string name="state_fasting">Currently Fasting</string>
+    <string name="state_eating">Currently Eating</string>
+    <string name="start_fasting">Start Fasting</string>
+    <string name="start_eating">Start Eating</string>
+    
+    <string name="label_streak">Streak</string>
+    <string name="label_current_streak">Current Streak</string>
+    <string name="streak_days">%d days</string>
+    <string name="streak_emoji_info">Keep going! Streaks earn special emojis as they grow.</string>
+    
+    <string name="label_countdown_to_bedtime">Time until bedtime</string>
+    <string name="label_countdown_to_wake_up">Time until wake-up</string>
+    <string name="bedtime_question">Did you go to bed on time last night?</string>
+    <string name="bedtime_answered">Your response has been recorded</string>
+    <string name="time_remaining_to_change">You can change your answer for %d seconds</string>
+    <string name="bedtime_streak_explanation">Your streak represents how many consecutive days you\'ve gone to bed on time. Keep it going!</string>
+    <string name="fasting_streak_explanation">Your streak represents how many consecutive successful fasts you\'ve completed. A successful fast is at least %d hours.</string>
+    <string name="overall_score_explanation">Your overall score reflects your success with fasting and bedtime goals.</string>
+    
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    
+    <string name="label_current_weight">Current Weight</string>
+    <string name="label_bmi">BMI</string>
+    <string name="weight_kg">%.1f kg</string>
+    <string name="bmi_value">BMI: %.1f</string>
+    <string name="no_checkin_yet">No check-ins recorded yet</string>
+    <string name="weight_lost">%.1f kg lost</string>
+    
+    <string name="action_check_in_now">Check-in Now</string>
+    
+    <string name="menu_check_in">Check-in</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_streaks">Streaks</string>
+    <string name="menu_progress">Progress</string>
+    <string name="menu_debug">Debug</string>
+    <string name="overall_score">Overall Score</string>
+    
+    <plurals name="days_since_checkin">
+        <item quantity="one">%d day since last check-in</item>
+        <item quantity="other">%d days since last check-in</item>
+    </plurals>
+
+    <!-- Activity Titles -->
+    <string name="title_check_in">Check-in</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_streaks">Streaks</string>
+    <string name="title_progress">Progress</string>
+    <string name="title_debug">Debug Data</string>
+    
+    <!-- Progress Screen -->
+    <string name="title_weight_progress">Weight Progress</string>
+    <string name="title_fasting_progress">Fasting Progress</string>
+    <string name="title_sleep_progress">Sleep Progress (7-Day Tracking)</string>
+    <string name="weight_progress_loss">%.1f kg lost since you started</string>
+    <string name="weight_progress_gain">%.1f kg gained since you started</string>
+    <string name="weight_progress_same">No change in weight since you started</string>
+    <string name="fasting_completion_percentage">%d%% of planned fasting days completed</string>
+    <string name="sleep_quality_improved">Sleep quality improved by %d%%</string>
+    <string name="sleep_quality_decreased">Sleep quality decreased by %d%%</string>
+    <string name="sleep_quality_same">Sleep quality has remained the same</string>
+    <string name="total_weight_loss">%.1f kg lost</string>
+    <string name="total_weight_gain">%.1f kg gained</string>
+    <string name="weight_history_chart">Weight History</string>
+    <string name="bmi_history_chart">BMI History</string>
+    
+    <!-- Added new string resources for bedtime tracking -->
+    <string name="trend">Trend:</string>
+    <string name="current_bedtime_adherence">Current bedtime adherence</string>
+    <string name="bedtime_adherence_percentage">%d%% of nights you went to bed on time</string>
+    <string name="trend_improving">Improving</string>
+    <string name="trend_declining">Declining</string>
+    <string name="trend_stable">Stable</string>
+    <string name="not_enough_sleep_data">Not enough data yet - keep tracking your sleep for 7 days</string>
+    
+    <!-- Bedtime warning -->
+    <string name="bedtime_warning">Please go to bed! It\'s past your bedtime.</string>
+    
+    <!-- Setup Process -->
+    <string name="setup_welcome_title">Welcome to SleepFastTracker</string>
+    <string name="setup_welcome_message">Let\'s get you started on your health journey</string>
+    <string name="setup_personal_info_title">Personal Information</string>
+    <string name="setup_body_info_title">Body Information</string>
+    <string name="setup_sleep_schedule_title">Sleep Schedule</string>
+    <string name="setup_fasting_schedule_title">Fasting Schedule</string>
+    <string name="setup_final_welcome_title">You\'re All Set!</string>
+    <string name="setup_final_welcome_message">You\'re ready to start your health journey</string>
+    <string name="setup_next">Next</string>
+    <string name="setup_back">Back</string>
+    <string name="setup_finish">Get Started</string>
+    
+    <!-- Debug Page -->
+    <string name="debug_title">Debug Information</string>
+    <string name="debug_user_settings">User Settings</string>
+    <string name="debug_fasting_records">Fasting Records</string>
+    <string name="debug_sleep_records">Sleep Records</string>
+    <string name="debug_weight_records">Weight Records</string>
+    <string name="debug_achievements">Achievement Records</string>
+    <string name="debug_logs">Debug Logs</string>
+    <string name="debug_toggle">Debug</string>
+    <string name="refresh">Refresh Data</string>
+    <string name="run_fasting_delta_backfill">Run Fasting Delta Backfill</string>
+    <string name="recalculate_weight_goals">Recalculate Weight Goals</string>
+    
+    <!-- BMI Categories -->
+    <string name="bmi_category_underweight">Underweight</string>
+    <string name="bmi_category_healthy">Healthy</string>
+    <string name="bmi_category_overweight">Overweight</string>
+    <string name="bmi_category_obese">Obese</string>
+    <string name="bmi_result_format">Your BMI: %1$s (%2$s)</string>
+    <string name="bmi_categories_help">Underweight: &lt;18.5, Normal: 18.5-24.9, Overweight: 25-29.9, Obese: ≥30</string>
+
+    <!-- Check-in Screen -->
+    <string name="enter_current_weight">Enter Current Weight</string>
+    <string name="weight_kg_hint">Weight (kg)</string>
+    <string name="save">Save</string>
+    <string name="weight_history">Weight History</string>
+    <string name="no_weight_records">No weight records yet</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="update">Update</string>
+    <string name="edit_weight_record">Edit Weight Record</string>
+    <string name="recorded_on">Recorded on: %s</string>
+    <string name="weight_delta_positive">+%.1f kg</string>
+    <string name="weight_delta_negative">%.1f kg</string>
+    <string name="edit_mode">Done</string>
+
+    <!-- Achievement Card -->
+    <string name="card_title_achievements">Achievements</string>
+    <string name="category_all">All</string>
+    <string name="category_sleep">Sleep</string>
+    <string name="category_fasting">Fasting</string>
+    <string name="category_weight">Weight</string>
+    <string name="achievements_unlocked_format">%1$d/%2$d unlocked</string>
+    <string name="achievements_points_earned">You\'ve earned %d points from achievements</string>
+    <string name="achievement_unlocked_description">Achievement unlocked</string>
+    <string name="achievement_locked_description">Achievement locked</string>
+    <string name="points_format">+%d pts</string>
+    
+    <!-- Added missing strings for bedtime card -->
+    <string name="label_going_to_bed_in">Going to bed in</string>
+    <string name="question_going_to_bed">Did you go to bed on time?</string>
+    <string name="question_did_you_go_to_bed_in_time">Did you go to bed on time last night?</string>
+    <string name="helper_text_did_you_go_to_bed_in_time">Your answer helps us track your sleep patterns and improve your streaks</string>
+    <string name="text_you_have_not_yet_set_your_bedtime">You have not yet set your bedtime. Please set it in the settings.</string>
+    <string name="button_change_bedtime">Change Bedtime</string>
+    <string name="button_yes">Yes</string>
+    <string name="button_no">No</string>
+    <string name="helper_text_sleep_question">Your answer helps us track your sleep patterns</string>
+    
+    <!-- Added missing strings for last checkin card -->
+    <string name="label_date">Date</string>
+    <string name="label_weight">Weight</string>
+    <string name="button_new_checkin">New Check-in</string>
+    <string name="last_checkin_format">Last check-in: %s</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="healthy_bmi_range">Healthy BMI: 18.5-25</string>
+    
+    <plurals name="days_ago">
+        <item quantity="one">%d day ago</item>
+        <item quantity="other">%d days ago</item>
+    </plurals>
+</resources> 

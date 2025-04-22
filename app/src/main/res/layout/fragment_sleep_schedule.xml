@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background_light"
+    android:contentDescription="Sleep schedule screen"
+    tools:context=".ui.setup.fragments.SleepScheduleFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Full width layout without card -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sleep Schedule"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="Sleep Schedule"
+            android:importantForAccessibility="yes" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wake up time"
+            android:textSize="18sp"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Wake up time"
+            android:importantForAccessibility="yes"
+            android:labelFor="@id/et_wake_up_time" />
+
+        <EditText
+            android:id="@+id/et_wake_up_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@drawable/edit_text_background"
+            android:inputType="time"
+            android:focusable="false"
+            android:clickable="true"
+            android:hint="07:00"
+            android:textSize="18sp"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_secondary"
+            android:minHeight="48dp"
+            android:importantForAccessibility="yes"
+            android:contentDescription="Select wake up time" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recommended bedtime"
+            android:textSize="18sp"
+            android:textColor="@color/text_primary"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Recommended bedtime"
+            android:importantForAccessibility="yes" />
+
+        <TextView
+            android:id="@+id/tv_recommended_bedtime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_background"
+            android:padding="16dp"
+            android:text="22:30"
+            android:textColor="@color/primary"
+            android:textSize="18sp"
+            android:minHeight="48dp"
+            android:contentDescription="Your recommended bedtime"
+            android:importantForAccessibility="yes" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Based on 8.5 hours of sleep"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="Based on 8.5 hours of sleep"
+            android:importantForAccessibility="yes" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your preferred bedtime"
+            android:textSize="18sp"
+            android:textColor="@color/text_primary"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Your preferred bedtime"
+            android:importantForAccessibility="yes"
+            android:labelFor="@id/et_bedtime" />
+
+        <EditText
+            android:id="@+id/et_bedtime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@drawable/edit_text_background"
+            android:inputType="time"
+            android:focusable="false"
+            android:clickable="true"
+            android:hint="22:30"
+            android:textSize="18sp"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_secondary"
+            android:minHeight="48dp"
+            android:importantForAccessibility="yes"
+            android:contentDescription="Select your preferred bedtime" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="32dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp">
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:progress="60"
+                    android:progressDrawable="@drawable/progress_indicator_active"
+                    android:contentDescription="Progress 3 of 5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3 of 5"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginTop="16dp"
+                    android:importantForAccessibility="yes" />
+
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/primary_button_background"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                android:padding="16dp"
+                android:minHeight="48dp"
+                android:text="Next"
+                android:contentDescription="Next button"
+                android:importantForAccessibility="yes" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView> 

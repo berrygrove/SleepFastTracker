@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Blue circle (sleep) -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/primary" />
+            <size android:width="150dp" android:height="150dp" />
+        </shape>
+    </item>
+    
+    <!-- Smaller white dot (eye) -->
+    <item android:left="30dp" android:top="50dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/white" />
+            <size android:width="20dp" android:height="20dp" />
+        </shape>
+    </item>
+    
+    <!-- Green circle (fasting) -->
+    <item android:left="60dp" android:top="30dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/accent" />
+            <size android:width="90dp" android:height="90dp" />
+        </shape>
+    </item>
+    
+    <!-- Fork symbol -->
+    <item android:left="90dp" android:top="50dp">
+        <rotate android:fromDegrees="90">
+            <shape android:shape="rectangle">
+                <solid android:color="@color/white" />
+                <size android:width="40dp" android:height="6dp" />
+            </shape>
+        </rotate>
+    </item>
+    
+    <item android:left="90dp" android:top="70dp">
+        <rotate android:fromDegrees="90">
+            <shape android:shape="rectangle">
+                <solid android:color="@color/white" />
+                <size android:width="40dp" android:height="6dp" />
+            </shape>
+        </rotate>
+    </item>
+    
+    <item android:left="90dp" android:top="90dp">
+        <rotate android:fromDegrees="90">
+            <shape android:shape="rectangle">
+                <solid android:color="@color/white" />
+                <size android:width="40dp" android:height="6dp" />
+            </shape>
+        </rotate>
+    </item>
+</layer-list> 

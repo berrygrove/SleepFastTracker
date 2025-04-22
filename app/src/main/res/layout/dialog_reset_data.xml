@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reset Data"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please enter your current information to create new initial records."
+        android:textAppearance="?attr/textAppearanceBody2"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Current Weight Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Current Weight (kg)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_current_weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Current Fasting State -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Current State:"
+        android:textAppearance="?attr/textAppearanceBody1"
+        android:layout_marginBottom="8dp"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group_fasting_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radio_eating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Eating"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/radio_fasting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fasting"/>
+    </RadioGroup>
+
+</LinearLayout> 

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@drawable/widget_background">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/widget_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="DAILY PROGRESS"
+        android:textColor="@color/purple_500"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Vertical divider line -->
+    <ImageView
+        android:id="@+id/vertical_divider"
+        android:layout_width="2dp"
+        android:layout_height="220dp"
+        android:layout_below="@id/widget_header"
+        android:layout_centerHorizontal="true"
+        android:background="#E0E0E0"
+        android:contentDescription="@null" />
+
+    <!-- Fasting Section -->
+    <TextView
+        android:id="@+id/widget_fasting_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/widget_header"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:text="@string/state_fasting"
+        android:textColor="@color/text_primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Fasting end time -->
+    <TextView
+        android:id="@+id/widget_fasting_end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/widget_fasting_label"
+        android:layout_alignStart="@id/fasting_container"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="4dp"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Ends: 19:30" />
+
+    <!-- Fasting Progress Circle -->
+    <RelativeLayout
+        android:id="@+id/fasting_container"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_below="@id/widget_fasting_end_time"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp">
+
+        <!-- We need to keep the ImageViews for compatibility with the widget provider -->
+        <ImageView
+            android:id="@+id/widget_fasting_progress_bg"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/widget_circle_bg"
+            android:contentDescription="@null" />
+
+        <ImageView
+            android:id="@+id/widget_fasting_progress"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/widget_countdown_ring"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/widget_fasting_countdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:text="15:54" />
+    </RelativeLayout>
+
+    <!-- Bedtime Section -->
+    <TextView
+        android:id="@+id/widget_bedtime_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/widget_header"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:text="@string/card_title_bedtime"
+        android:textColor="@color/text_primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Bedtime target time -->
+    <TextView
+        android:id="@+id/widget_bedtime_target_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/widget_bedtime_label"
+        android:layout_alignStart="@id/bedtime_container"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="4dp"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Bedtime: 22:00" />
+
+    <!-- Bedtime Progress Circle -->
+    <RelativeLayout
+        android:id="@+id/bedtime_container"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_below="@id/widget_bedtime_target_time"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp">
+
+        <!-- We need to keep the ImageViews for compatibility with the widget provider -->
+        <ImageView
+            android:id="@+id/widget_bedtime_progress_bg"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/widget_circle_bg"
+            android:contentDescription="@null" />
+
+        <ImageView
+            android:id="@+id/widget_bedtime_progress"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/widget_bedtime_ring"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/widget_bedtime_countdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:text="3:04" />
+    </RelativeLayout>
+
+    <!-- Bottom Progress Labels with flame emoji -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/widget_fasting_streak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/magenta_medium"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Fast: 1 day" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:layout_marginStart="4dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/widget_bedtime_streak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/purple_500"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Sleep: 1 day" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:layout_marginStart="4dp"/>
+    </LinearLayout>
+</RelativeLayout> 

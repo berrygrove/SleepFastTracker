@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background_light"
+    android:contentDescription="Welcome screen"
+    tools:context=".ui.setup.fragments.WelcomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Full width layout without card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome to SleepFastTracker"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="24dp"
+                android:textColor="@color/primary"
+                android:contentDescription="Welcome to SleepFastTracker"
+                android:importantForAccessibility="yes" />
+
+            <!-- Add name input field -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What's your name?"
+                android:textSize="18sp"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="What's your name?"
+                android:importantForAccessibility="yes"
+                android:labelFor="@id/et_name" />
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:background="@drawable/edit_text_background"
+                android:inputType="textPersonName"
+                android:hint="Your Name"
+                android:textSize="18sp"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_secondary"
+                android:minHeight="48dp"
+                android:layout_marginBottom="24dp"
+                android:importantForAccessibility="yes"
+                android:contentDescription="Enter your name"
+                android:accessibilityLiveRegion="polite" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:contentDescription="App logo with overlapping circles">
+
+                <!-- Sleep icon -->
+                <View
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/circle_background_primary"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:contentDescription="Sleep icon" />
+
+                <!-- Eating icon -->
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/circle_background_accent"
+                    android:layout_gravity="end|bottom"
+                    android:contentDescription="Eating icon" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sleep Better, Eat Smarter"
+                android:textSize="22sp"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="Sleep Better, Eat Smarter"
+                android:importantForAccessibility="yes" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Let's set up your personalized sleep and fasting schedule"
+                android:textSize="16sp"
+                android:textColor="@color/text_secondary"
+                android:gravity="center"
+                android:layout_marginBottom="32dp"
+                android:contentDescription="Let's set up your personalized sleep and fasting schedule"
+                android:importantForAccessibility="yes" />
+
+            <!-- Notification Permission Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enable notifications to get reminders about:"
+                android:textSize="18sp"
+                android:textColor="@color/text_primary"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="Enable notifications to get reminders about:"
+                android:importantForAccessibility="yes" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Bedtime reminders"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Fasting window alerts"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Weekly weight updates"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginBottom="8dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_notification_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Checking notification status..."
+                android:textSize="16sp"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="Notification status"
+                android:importantForAccessibility="yes" />
+
+            <Button
+                android:id="@+id/btn_notification_permission"
+                style="@style/PrimaryButton"
+                android:text="Enable Notifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="Enable Notifications Button"
+                android:importantForAccessibility="yes" />
+
+            <Button
+                android:id="@+id/btn_get_started"
+                style="@style/PrimaryButton"
+                android:text="Get Started"
+                android:minHeight="48dp"
+                android:textSize="18sp"
+                android:contentDescription="Get Started Button"
+                android:importantForAccessibility="yes" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView> 
