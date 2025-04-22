@@ -182,7 +182,6 @@ class FastingBedtimeWidget : AppWidgetProvider() {
                 val now = LocalDateTime.now()
                 val eatingWindowStart = LocalTime.parse(settings.eatingStartTime)
                 val eatingWindowDuration = Duration.ofHours(settings.eatingWindowHours.toLong())
-                val eatingEndTime = eatingWindowStart.plus(eatingWindowDuration)
                 
                 // Calculate and format fasting countdown
                 val fastingCountdown = if (currentFastingState) {
@@ -237,12 +236,12 @@ class FastingBedtimeWidget : AppWidgetProvider() {
                     val eatingStartTime = latestFastingRecord?.timestamp ?: now
                     
                     // Calculate and set the eating end time (red square area)
-                    val eatingEndTime = eatingStartTime.plus(eatingWindowDuration)
+                    val sessionEndTime = eatingStartTime.plus(eatingWindowDuration)
                     val timeFormatter = DateTimeFormatter.ofPattern("HH:mm")
-                    views.setTextViewText(R.id.widget_fasting_end_time, "Ends: ${eatingEndTime.format(timeFormatter)}")
+                    views.setTextViewText(R.id.widget_fasting_end_time, "Ends: ${sessionEndTime.format(timeFormatter)}")
                     
                     // Countdown to fasting start - use the time component of eatingEndTime
-                    val eatingEndLocalTime = eatingEndTime.toLocalTime()
+                    val eatingEndLocalTime = sessionEndTime.toLocalTime()
                     val fastingStartDateTime = now.with(eatingEndLocalTime)
                     val duration = if (now.toLocalTime().isBefore(eatingEndLocalTime)) {
                         Duration.between(now, fastingStartDateTime)

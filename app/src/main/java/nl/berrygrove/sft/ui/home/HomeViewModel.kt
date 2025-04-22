@@ -175,7 +175,6 @@ class HomeViewModel(
             
             if (fasting) {
                 // FASTING STATE: Count down to fasting window duration
-                val today = now.toLocalDate()
                 
                 // Get the latest fasting record to find when fasting started
                 val latestRecord = fastingRepository.getLatestFastingRecord()
@@ -476,31 +475,22 @@ class HomeViewModel(
     private suspend fun calculateWeightLost() {
         val weightRecords = weightRepository.getAllWeightRecords()
         
-        if (weightRecords.size > 1) {
-            // Sort by timestamp to ensure correct order
+        // Get the maximum weight loss relative to the starting weight
+        if (weightRecords.size >= 2) {
             val sortedRecords = weightRecords.sortedBy { it.timestamp }
-            
-            // Get the starting weight (first recorded weight)
             val startWeight = sortedRecords.first().weight
             
-            // Initialize variables for tracking maximum weight loss
+            // Calculate the maximum lost weight (ignoring any weight gains)
             var maxWeightLoss = 0f
-            var lowestWeight = startWeight
-            
-            // Iterate through records to find maximum weight loss from starting weight
-            for (record in sortedRecords.drop(1)) { // Skip the first record
-                if (record.weight < lowestWeight) {
-                    lowestWeight = record.weight
-                    val currentLoss = startWeight - lowestWeight
-                    if (currentLoss > maxWeightLoss) {
-                        maxWeightLoss = currentLoss
-                    }
+            for (record in sortedRecords.drop(1)) {
+                val currentLoss = kotlin.math.max(0f, startWeight - record.weight)
+                if (currentLoss > maxWeightLoss) {
+                    maxWeightLoss = currentLoss
                 }
             }
             
-            // Also calculate current weight loss
+            // Also calculate current weight based on last record
             val currentWeight = sortedRecords.last().weight
-            val currentWeightLoss = kotlin.math.max(0f, startWeight - currentWeight)
             
             // Use the maximum historical weight loss for achievements
             _weightLost.postValue(maxWeightLoss)

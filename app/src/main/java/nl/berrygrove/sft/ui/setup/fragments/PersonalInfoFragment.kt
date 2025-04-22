@@ -50,7 +50,6 @@ class PersonalInfoFragment : Fragment() {
         nameTextView = view.findViewById(R.id.tv_personal_info_title)
         
         // Update title with user's name if available
-        val title = nameTextView.text.toString()
         if (viewModel.getUserName().isNotEmpty()) {
             nameTextView.text = "Hi ${viewModel.getUserName()}, tell us about yourself"
         }

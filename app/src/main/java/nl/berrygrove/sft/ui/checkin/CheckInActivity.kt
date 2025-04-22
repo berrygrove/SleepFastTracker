@@ -163,7 +163,7 @@ class CheckInActivity : AppCompatActivity() {
         
         // Observe current edit record - but don't auto-show dialog to prevent infinite recursion
         // The dialog will be shown manually when user clicks edit button
-        viewModel.currentEditRecord.observe(this) { record ->
+        viewModel.currentEditRecord.observe(this) { _ ->
             // We no longer auto-show dialog here to prevent recursion
             // Dialog is shown directly in adapter click handler
         }

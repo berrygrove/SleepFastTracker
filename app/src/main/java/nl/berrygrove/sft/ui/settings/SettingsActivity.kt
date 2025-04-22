@@ -265,14 +265,14 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun updateNotificationSettings(enabled: Boolean) {
-        userSettings?.let { settings ->
-            val updatedSettings = settings.copy(
+        userSettings?.let { currentSettings ->
+            val updatedSettings = currentSettings.copy(
                 notificationsEnabled = enabled,
-                bedtimeCheckNotificationEnabled = enabled && settings.bedtimeCheckNotificationEnabled,
-                bedtimeReminderNotificationEnabled = enabled && settings.bedtimeReminderNotificationEnabled,
-                weightUpdateNotificationEnabled = enabled && settings.weightUpdateNotificationEnabled,
-                fastingEndNotificationEnabled = enabled && settings.fastingEndNotificationEnabled,
-                eatingEndNotificationEnabled = enabled && settings.eatingEndNotificationEnabled
+                bedtimeCheckNotificationEnabled = enabled && currentSettings.bedtimeCheckNotificationEnabled,
+                bedtimeReminderNotificationEnabled = enabled && currentSettings.bedtimeReminderNotificationEnabled,
+                weightUpdateNotificationEnabled = enabled && currentSettings.weightUpdateNotificationEnabled,
+                fastingEndNotificationEnabled = enabled && currentSettings.fastingEndNotificationEnabled,
+                eatingEndNotificationEnabled = enabled && currentSettings.eatingEndNotificationEnabled
             )
             updateUserSettings(updatedSettings)
             updateSwitchStates(updatedSettings)
