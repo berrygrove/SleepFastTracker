@@ -128,9 +128,7 @@ class HomeViewModel(
             calculateBedtimeStreak()
             calculateWeightLost()
             
-            // Start countdown timers
-            startCountdownTimers()
-            
+            // The countdown timer is no longer started here - will be controlled by activity lifecycle
             // Check if bedtime question should be shown
             checkBedtimeQuestion()
             
@@ -160,10 +158,14 @@ class HomeViewModel(
     private fun startCountdownTimers() {
         countdownJob?.cancel()
         countdownJob = viewModelScope.launch {
+            // Update immediately when starting, then continue with periodic updates
+            updateFastingCountdown()
+            updateSleepCountdown()
+            
             while (isActive) {
+                delay(1000) // Wait one second before next update
                 updateFastingCountdown()
                 updateSleepCountdown()
-                delay(1000) // Update every second
             }
         }
     }
@@ -651,6 +653,24 @@ class HomeViewModel(
     fun runFastingDeltaBackfill() {
         val app = getApplication<SleepFastTrackerApplication>()
         app.runFastingDeltaBackfill()
+    }
+
+    /**
+     * Starts the countdown timers - should be called in Activity's onResume
+     */
+    fun startCountdown() {
+        // Only start if not already running
+        if (countdownJob?.isActive != true) {
+            startCountdownTimers()
+        }
+    }
+    
+    /**
+     * Stops the countdown timers - should be called in Activity's onPause
+     */
+    fun stopCountdown() {
+        countdownJob?.cancel()
+        countdownJob = null
     }
 
     override fun onCleared() {

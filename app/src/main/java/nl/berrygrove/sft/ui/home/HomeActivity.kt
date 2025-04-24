@@ -75,10 +75,20 @@ class HomeActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
     override fun onResume() {
         super.onResume()
         
+        // Start the countdown timer when screen is visible
+        viewModel.startCountdown()
+        
         // Refresh the weight data when returning to this screen
         lifecycleScope.launch {
             viewModel.refreshLastWeightRecord()
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        
+        // Stop the countdown timer when screen is not visible to save battery
+        viewModel.stopCountdown()
     }
 
     private fun setupToolbar() {
