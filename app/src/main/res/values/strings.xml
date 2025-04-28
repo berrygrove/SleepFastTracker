@@ -120,8 +120,20 @@
     <string name="debug_logs">Debug Logs</string>
     <string name="debug_toggle">Debug</string>
     <string name="refresh">Refresh Data</string>
+    <string name="refresh_debug_data">Refresh Data</string>
     <string name="run_fasting_delta_backfill">Run Fasting Delta Backfill</string>
     <string name="recalculate_weight_goals">Recalculate Weight Goals</string>
+    <string name="recalculate_achievements">Recalculate Achievements</string>
+    <string name="battery_debug">Battery Debug</string>
+    
+    <!-- Battery Debug Page -->
+    <string name="battery_debug_title">Battery Diagnostics</string>
+    <string name="memory_usage">Memory Usage</string>
+    <string name="battery_usage_report">Battery Usage Report</string>
+    <string name="generate_battery_report">Generate Battery Report</string>
+    <string name="widget_optimization">Widget Optimization</string>
+    <string name="reapply_widget_optimization">Reapply Widget Optimization</string>
+    <string name="power_saving_tips">Power-Saving Tips</string>
     
     <!-- BMI Categories -->
     <string name="bmi_category_underweight">Underweight</string>

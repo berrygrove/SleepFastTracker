@@ -31,41 +31,55 @@
             android:padding="16dp">
 
             <!-- Button Row -->
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="16dp">
-                
+                android:padding="16dp">
+
                 <Button
                     android:id="@+id/btnRefresh"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/refresh"
+                    android:text="@string/refresh_debug_data"
                     android:textSize="12sp"
-                    android:layout_marginEnd="8dp"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    
-                <Button
-                    android:id="@+id/btnRunFastingDeltaBackfill"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/run_fasting_delta_backfill"
-                    android:textSize="12sp"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_alignParentStart="true"
+                    android:textColor="@color/primary"/>
+
                 <Button
                     android:id="@+id/btnRecalculateWeightAchievements"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/recalculate_weight_goals"
+                    android:text="@string/recalculate_achievements"
                     android:textSize="12sp"
-                    android:layout_marginStart="8dp"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-            </LinearLayout>
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/primary"/>
+                
+                <Button
+                    android:id="@+id/btnRunFastingDeltaBackfill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/run_fasting_delta_backfill"
+                    android:textSize="12sp"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_below="@id/btnRefresh"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/primary"/>
+                    
+                <Button
+                    android:id="@+id/btnBatteryDebug"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Battery Debug"
+                    android:textSize="12sp"
+                    android:layout_below="@id/btnRunFastingDeltaBackfill"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="8dp"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:textColor="@color/bluepurple_light"/>
+            </RelativeLayout>
             
             <!-- Divider -->
             <View

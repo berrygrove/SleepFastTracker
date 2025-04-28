@@ -1,5 +1,6 @@
 package nl.berrygrove.sft.ui.debug
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -88,6 +89,9 @@ class DebugActivity : AppCompatActivity() {
         
         // Setup debug switch
         setupDebugSwitch()
+        
+        // Setup battery debug button
+        setupBatteryDebugButton()
         
         // Display any existing logs
         updateDebugLogDisplay()
@@ -428,6 +432,14 @@ class DebugActivity : AppCompatActivity() {
             } finally {
                 binding.btnRecalculateWeightAchievements.isEnabled = true
             }
+        }
+    }
+    
+    // Add a new method for setting up the battery debug button
+    private fun setupBatteryDebugButton() {
+        binding.btnBatteryDebug.setOnClickListener {
+            startActivity(Intent(this, BatteryDebugActivity::class.java))
+            logDebug("Navigated to BatteryDebugActivity")
         }
     }
     

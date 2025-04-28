@@ -10,6 +10,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import nl.berrygrove.sft.data.AppDatabase
 import nl.berrygrove.sft.data.model.Achievement
+import nl.berrygrove.sft.debug.BatteryUsageMonitor
 import nl.berrygrove.sft.repository.AchievementRepository
 import nl.berrygrove.sft.repository.FastingRepository
 import nl.berrygrove.sft.repository.SleepRepository
@@ -38,6 +39,9 @@ class SleepFastTrackerApplication : Application(), Configuration.Provider {
     val weightRecordRepository by lazy { WeightRecordRepository(database.weightRecordDao()) }
     val achievementRepository by lazy { AchievementRepository(database.achievementDao()) }
     
+    // Battery usage monitor
+    val batteryMonitor by lazy { BatteryUsageMonitor.getInstance() }
+    
     // Global debug log storage
     companion object {
         private val debugLogBuilder = StringBuilder()
@@ -45,7 +49,7 @@ class SleepFastTrackerApplication : Application(), Configuration.Provider {
         private val debugLogs = mutableListOf<Pair<String, String>>()
         
         // Flag to control debug logging
-        private var debugEnabled = true
+        private var debugEnabled = false
         
         // Static reference to the application instance
         private var instance: SleepFastTrackerApplication? = null
@@ -95,6 +99,9 @@ class SleepFastTrackerApplication : Application(), Configuration.Provider {
             
             // Also log to Android system log
             android.util.Log.d(tag, message)
+            
+            // Record in battery monitor
+            BatteryUsageMonitor.getInstance().recordOperation("log:$tag")
         }
         
         /**
@@ -132,11 +139,16 @@ class SleepFastTrackerApplication : Application(), Configuration.Provider {
         // Initialize app
         initializeApp()
         
-        // Request immediate widget update
-        FastingBedtimeWidget.requestUpdate(this)
+        // Schedule periodic widget updates instead of immediate update
+        // This delays the initialization to reduce startup cost
+        applicationScope.launch {
+            // Delay the initial widget update to avoid startup performance impact
+            kotlinx.coroutines.delay(5000) // 5 second delay
+            FastingBedtimeWidget.schedulePeriodicUpdates(this@SleepFastTrackerApplication)
+        }
     }
     
-    // Provide WorkManager configuration
+    // Provide WorkManager configuration with battery optimization settings
     override fun getWorkManagerConfiguration(): Configuration {
         return Configuration.Builder()
             .setMinimumLoggingLevel(android.util.Log.INFO)
@@ -147,6 +159,9 @@ class SleepFastTrackerApplication : Application(), Configuration.Provider {
         applicationScope.launch {
             // Initialize database and populate with initial data if needed
             // This runs in a background thread
+            
+            // Record the app initialization in the battery monitor
+            batteryMonitor.recordOperation("app_initialization")
         }
     }
     
@@ -155,10 +170,22 @@ class SleepFastTrackerApplication : Application(), Configuration.Provider {
      */
     fun runFastingDeltaBackfill() {
         applicationScope.launch {
+            batteryMonitor.startTiming("fasting_delta_backfill")
+            
             val backfill = FastingDeltaBackfill(this@SleepFastTrackerApplication, fastingRepository, userSettingsRepository)
             val updatedCount = backfill.backfillDeltaMinutes()
             addDebugLog("SleepFastTrackerApplication", "Fasting delta backfill process completed. Updated $updatedCount records.")
+            
+            batteryMonitor.stopTiming("fasting_delta_backfill")
         }
+    }
+    
+    /**
+     * Generate a battery usage report for debugging
+     */
+    fun generateBatteryReport(): String {
+        batteryMonitor.dumpStats(this)
+        return "Battery usage report generated. Check the app's external files directory."
     }
     
     // Add a function to insert the new achievements if they don't exist

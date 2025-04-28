@@ -27,6 +27,7 @@ import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.util.concurrent.TimeUnit
 import kotlin.random.Random
+import android.os.SystemClock
 
 /**
  * Implementation of App Widget functionality.
@@ -426,9 +427,9 @@ class FastingBedtimeWidget : AppWidgetProvider() {
         
         /**
          * Schedule periodic updates for the widget countdown using WorkManager
-         * This ensures the widget is updated frequently for accurate countdown display
+         * This ensures the widget is updated at an appropriate interval to save battery
          */
-        private fun schedulePeriodicUpdates(context: Context) {
+        fun schedulePeriodicUpdates(context: Context) {
             try {
                 android.util.Log.d("FastingBedtimeWidget", "Scheduling periodic widget updates at ${LocalDateTime.now()}")
                 
@@ -453,14 +454,18 @@ class FastingBedtimeWidget : AppWidgetProvider() {
                     android.util.Log.e("FastingBedtimeWidget", "Error cancelling existing work", e)
                 }
                 
-                // Create a work request that repeats every minute
+                // Create a work request that repeats every 30 minutes to save battery
                 val updateRequest = PeriodicWorkRequestBuilder<WidgetUpdateWorker>(
-                    15, TimeUnit.MINUTES,  // Update every 15 minutes (system limitation)
-                    5, TimeUnit.MINUTES    // Flex time of 5 minutes
+                    30, TimeUnit.MINUTES,  // Update less frequently (30 mins instead of 15)
+                    10, TimeUnit.MINUTES   // Flex time for power optimization
                 )
                     .setConstraints(Constraints.Builder()
                         .setRequiresBatteryNotLow(true)  // Don't update if battery is critically low
                         .build())
+                    .setBackoffCriteria(
+                        BackoffPolicy.EXPONENTIAL,
+                        10, TimeUnit.MINUTES
+                    )
                     .build()
                 
                 // Log the request details
@@ -475,16 +480,34 @@ class FastingBedtimeWidget : AppWidgetProvider() {
                 
                 android.util.Log.d("FastingBedtimeWidget", "Scheduled periodic widget updates successfully")
                 
-                // Also schedule a one-time immediate update to ensure the widget is updated right away
-                val immediateUpdateRequest = OneTimeWorkRequestBuilder<WidgetUpdateWorker>()
-                    .build()
-                
-                WorkManager.getInstance(context).enqueue(immediateUpdateRequest)
-                android.util.Log.d("FastingBedtimeWidget", "Scheduled immediate update with ID: ${immediateUpdateRequest.id}")
-                
+                // Only schedule immediate update when widgets first added or app restarted
+                // Avoid scheduling every time this method is called
+                if (isFirstUpdateAfterBoot(context)) {
+                    val immediateUpdateRequest = OneTimeWorkRequestBuilder<WidgetUpdateWorker>()
+                        .build()
+                    
+                    WorkManager.getInstance(context).enqueue(immediateUpdateRequest)
+                    android.util.Log.d("FastingBedtimeWidget", "Scheduled immediate update with ID: ${immediateUpdateRequest.id}")
+                    
+                    // Remember that we've done the first update
+                    val prefs = context.getSharedPreferences("widget_prefs", Context.MODE_PRIVATE)
+                    prefs.edit().putLong("last_boot_update_time", System.currentTimeMillis()).apply()
+                }
             } catch (e: Exception) {
                 android.util.Log.e("FastingBedtimeWidget", "Error scheduling periodic updates", e)
             }
+        }
+        
+        /**
+         * Determine if this is the first widget update since boot
+         */
+        private fun isFirstUpdateAfterBoot(context: Context): Boolean {
+            val prefs = context.getSharedPreferences("widget_prefs", Context.MODE_PRIVATE)
+            val lastUpdateTime = prefs.getLong("last_boot_update_time", 0)
+            val bootTime = System.currentTimeMillis() - SystemClock.elapsedRealtime()
+            
+            // If the last update happened before the device booted, or if it's the first time ever
+            return lastUpdateTime < bootTime || lastUpdateTime == 0L
         }
     }
 }

@@ -63,6 +63,9 @@
         <activity android:name=".ui.debug.DebugActivity" 
                   android:exported="false"
                   android:theme="@style/Theme.SleepFastTracker.NoActionBar" />
+        <activity android:name=".ui.debug.BatteryDebugActivity" 
+                  android:exported="false"
+                  android:theme="@style/Theme.SleepFastTracker" />
                   
         <!-- Widget Provider -->
         <receiver 
